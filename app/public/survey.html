@@ -171,12 +171,12 @@
             Submit</button>
 
         <hr>
+        
         <footer class="footer" style="background: white; color: black;">
             <div class="container">
                 <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/dcoleslaw86/Friend-Finder">GitHub Repo</a></p>
             </div>
         </footer>
-
     </div>
 
     <div id="results-modal" class="modal fade" role="dialog">
@@ -194,12 +194,10 @@
                     <button class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
-
         </div>
     </div>
 
     <script type="text/javascript">
- 
         $("#submit").on("click", function(event) {
           event.preventDefault();
           function validateForm() {
@@ -210,7 +208,6 @@
               }
             });
             $(".chosen-select").each(function() {
-    
               if ($(this).val() === "") {
                 isValid = false;
               }
@@ -234,7 +231,6 @@
                 $("#q10").val()
               ]
             };
-    
             $.post("/api/friends", userData, function(data) {
               $("#match-name").text(data.name);
               $("#match-img").attr("src", data.photo);
@@ -244,10 +240,7 @@
             else{  
                 alert("Please fill out all fields before applying to Xavier Institute for Higher Learning!")
             }
-            
         });
-
-
 </script>
 
 </body>

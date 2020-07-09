@@ -4,20 +4,15 @@ module.exports = function(app) {
   app.get("/api/friends", function(req, res) {
     res.json(friends);
   });
-
   app.post("/api/friends", function(req, res) {
     var bestMatch = {
       name: "",
       photo: "",
       friendDifference: 9000
     };
-
     var userData = req.body;
-    // var userName = userData.name;
     var userScores = userData.scores;
-
     var totalDifference = 0;
-
     for (var i = 0; i < friends.length; i++) {
       var currentFriend = friends[i];
       totalDifference = 0;
@@ -33,9 +28,7 @@ module.exports = function(app) {
         bestMatch.friendDifference = totalDifference;
       }
     }
-
     friends.push(userData);
-
     res.json(bestMatch);
   });
 };
